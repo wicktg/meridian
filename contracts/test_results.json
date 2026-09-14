@@ -1,0 +1,35 @@
+[
+  {
+    "scenarioId": 1,
+    "scenarioName": "Scenario 1: Normal Baseline Conditions (Expected: Stable)",
+    "expectedRegime": "Stable",
+    "actualRegime": "Stable",
+    "reasoning": "All metrics indicate normal operations with healthy collateralization, minimal price divergence, low debt ceiling utilization, stable liquidity, and no reported incidents.",
+    "txHash": "0x7327ea67bdb7b11ac624d53f508fe458045ed66984176e276eaca581e7bf5f99",
+    "explorerUrl": "https://explorer-bradbury.genlayer.com/tx/0x7327ea67bdb7b11ac624d53f508fe458045ed66984176e276eaca581e7bf5f99",
+    "executionSuccess": true,
+    "matchesExpectation": true
+  },
+  {
+    "scenarioId": 2,
+    "scenarioName": "Scenario 2: Approaching-Stress Turbulence (Expected: Unsettled)",
+    "expectedRegime": "Unsettled",
+    "actualRegime": "Unsettled",
+    "reasoning": "The protocol remains solvent with orderly liquidations, but a 12% ETH decline, stETH discount and pool imbalance, sharply elevated borrow rates, and a potential reentrancy issue requiring paused borrowing indicate significant turbulence and unresolved risk.",
+    "txHash": "0x95ea90f93461d17aaecbc782df3ff4d3e7759ec957b12d317c9a170078c27a1a",
+    "explorerUrl": "https://explorer-bradbury.genlayer.com/tx/0x95ea90f93461d17aaecbc782df3ff4d3e7759ec957b12d317c9a170078c27a1a",
+    "executionSuccess": true,
+    "matchesExpectation": true
+  },
+  {
+    "scenarioId": 3,
+    "scenarioName": "Scenario 3: Active Exploit & Crisis Breakdown (Expected: Undertow)",
+    "expectedRegime": "Undertow",
+    "actualRegime": "Undertow",
+    "reasoning": "The evidence confirms an active exploit draining $197M, severe depeg to $0.68, cascading liquidations, and emergency shutdown, constituting a catastrophic protocol failure.",
+    "txHash": "0x495cb4b5a4dec25dfe4d33f59cdc4692852e9f764acd936ce5caa74234cd70c8",
+    "explorerUrl": "https://explorer-bradbury.genlayer.com/tx/0x495cb4b5a4dec25dfe4d33f59cdc4692852e9f764acd936ce5caa74234cd70c8",
+    "executionSuccess": true,
+    "matchesExpectation": true
+  }
+]

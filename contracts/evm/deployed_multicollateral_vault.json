@@ -1,0 +1,53 @@
+{
+  "network": "base-sepolia",
+  "chainId": 84532,
+  "deployer": "0xe4d9E11a2D4824CD49DCA396eD01f20FEDE6065E",
+  "mUSD": "0x22c7832ae38ebeb7003fa66b5184fc3361f3c2d1",
+  "vault": {
+    "address": "0xa969668f2dba4995a4f9078e335d09a0ca7f0ea7",
+    "deploymentTx": "0xb3e6a509713a26397857fea43a433fd6904e628ec92f5c1da84f31fe99aebacd",
+    "explorerUrl": "https://sepolia.basescan.org/address/0xa969668f2dba4995a4f9078e335d09a0ca7f0ea7",
+    "txExplorerUrl": "https://sepolia.basescan.org/tx/0xb3e6a509713a26397857fea43a433fd6904e628ec92f5c1da84f31fe99aebacd",
+    "minterAuthTx": "0x086c2bd2f217a052f8030f86f5157ead5dce0fabf42a1fd0b919e9e499da0376",
+    "receiverAuthTx": "0xfabaf053ce6a4d1efaef187b19fae65aee2210c90f539e16078c47d54cff1c7a",
+    "bridgeAuthTx": "0xeaf0f031eaf5f7d0ccfaa19dffe78f8fa2cedccb16f12f02c8fe4db6d1ce4098",
+    "daiPerAssetEnableTx": "0xd6e55ba5042e1d032c926ed26564ab39c979d4a4856299e0f842f5a5b7c90e25",
+    "previousVault": "0x54a3d0e5574c71bd2e696a3a514b496304e598d1"
+  },
+  "receiver": {
+    "address": "0x1ac0eba066459c31fac2e4bba234193bbc52f21b",
+    "deploymentTx": "0x717b55591201f28ddc61e1b1f530a57cf023ab7d2027856b429031d060fb83b0"
+  },
+  "dispatcher": {
+    "address": "0xbe142e597b7c20858a626310ec10259b8ae337da"
+  },
+  "tokens": {
+    "WETH": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "feed": "0x4aDC67696bA383F43DD60A9e78F2C97Fbbfc7cb1",
+      "decimals": 18
+    },
+    "USDC": {
+      "address": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+      "feed": "0xd30e2101a97dcbAeBCBC04F14C3f624E67A35165",
+      "decimals": 6
+    },
+    "LINK": {
+      "address": "0xE4aB69C077896252FAFBD49EFD26B5D171A32410",
+      "feed": "0xb113F5A928BCfF189C998ab20d753a47F9dE5A61",
+      "decimals": 18
+    },
+    "WBTC": {
+      "address": "0x54114591963CF60EF3aA63bEfD6eC263D98145a4",
+      "feed": "0x0FB99723Aee6f420beAD13e6bBB79b7E6F034298",
+      "decimals": 8
+    }
+  },
+  "bridgedTokens": {
+    "DAI": {
+      "address": "0xFF34B3d4Aee8ddCd6F9AFFFB6Fe49bD371b8a357",
+      "decimals": 18
+    }
+  },
+  "deployedAt": "2026-09-13T17:31:56.900Z"
+}

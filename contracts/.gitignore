@@ -1,0 +1,6 @@
+.env*
+node_modules/
+dist/
+*.keystore
+.genlayer/
+bedrock-testnet-results.json

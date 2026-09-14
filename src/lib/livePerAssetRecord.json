@@ -1,0 +1,67 @@
+{
+  "testName": "Fresh Finalized 3-Asset GenLayer Bradbury Consensus",
+  "timestamp": "2026-09-14T13:30:21.324Z",
+  "status": "FINALIZED",
+  "assets": {
+    "ETH": {
+      "symbol": "ETH",
+      "name": "Ethereum",
+      "regime": "Stable",
+      "regimeIndex": 0,
+      "requiredCR": "150%",
+      "requiredCRBps": 15000,
+      "stabilityFee": "2.00%",
+      "mintHalted": false,
+      "reasoning": "Spot price is stable at $2511.04, oracle heartbeat is fresh (289s), and short-term volatility is normal.",
+      "lastTimestamp": 1789392621,
+      "genlayerTxHash": "0x5b518b0f4067696f17418144b38d1b2f44ed766d12c9981b8ed47263922e4aca",
+      "genlayerExplorerUrl": "https://explorer-bradbury.genlayer.com/tx/0x5b518b0f4067696f17418144b38d1b2f44ed766d12c9981b8ed47263922e4aca",
+      "verified": true,
+      "conditionsSatisfied": true,
+      "statusIndicator": "green_flag"
+    },
+    "DAI": {
+      "symbol": "DAI",
+      "name": "Dai Stablecoin",
+      "regime": "Stable",
+      "regimeIndex": 0,
+      "requiredCR": "150%",
+      "requiredCRBps": 15000,
+      "stabilityFee": "2.00%",
+      "mintHalted": false,
+      "reasoning": "DAI peg is stable at $0.9998 (-0.02% parity), oracle is fresh (745s), and liquidity is healthy.",
+      "lastTimestamp": 1789392621,
+      "genlayerTxHash": "0xdb30d81111e7838985d7437a436723d0a2a34f1f58025eb305df2628321a934b",
+      "genlayerExplorerUrl": "https://explorer-bradbury.genlayer.com/tx/0xdb30d81111e7838985d7437a436723d0a2a34f1f58025eb305df2628321a934b",
+      "verified": true,
+      "conditionsSatisfied": true,
+      "statusIndicator": "green_flag"
+    },
+    "USDC": {
+      "symbol": "USDC",
+      "name": "USD Coin",
+      "regime": "Stable",
+      "regimeIndex": 0,
+      "requiredCR": "150%",
+      "requiredCRBps": 15000,
+      "stabilityFee": "2.00%",
+      "mintHalted": false,
+      "reasoning": "Minimal peg deviation (-0.02%) at $0.9998 and a fresh oracle indicate healthy parity conditions.",
+      "lastTimestamp": 1789392621,
+      "genlayerTxHash": "0x7d1714111dcf3d12ef319a33c45aade89f97b8c64ee94b5e9f55334aab78d401",
+      "genlayerExplorerUrl": "https://explorer-bradbury.genlayer.com/tx/0x7d1714111dcf3d12ef319a33c45aade89f97b8c64ee94b5e9f55334aab78d401",
+      "verified": true,
+      "conditionsSatisfied": true,
+      "statusIndicator": "green_flag"
+    }
+  },
+  "verificationSummary": {
+    "independentTransactionsConfirmed": true,
+    "uniqueGenlayerTxHashesCount": 3,
+    "allFinalized": true,
+    "allGreenFlagSatisfied": true,
+    "daiDepegResolved": true,
+    "internalTokensStripped": true,
+    "daiPegDataReferenced": true
+  }
+}

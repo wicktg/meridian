@@ -1,0 +1,35 @@
+{
+  "network": "base-sepolia",
+  "chainId": 84532,
+  "deployer": "0xe4d9E11a2D4824CD49DCA396eD01f20FEDE6065E",
+  "mUSD": {
+    "address": "0x22c7832ae38ebeb7003fa66b5184fc3361f3c2d1",
+    "explorerUrl": "https://sepolia.basescan.org/address/0x22c7832ae38ebeb7003fa66b5184fc3361f3c2d1"
+  },
+  "vault": {
+    "address": "0x9b5a5ae9fd46f95cdc09d7b1d8e684ea31a37fdd",
+    "deploymentTx": "0x0e56f882e4d62c30bf6e614d912c5fb13af838d33eff32b808a6ec3e2017a04d",
+    "explorerUrl": "https://sepolia.basescan.org/address/0x9b5a5ae9fd46f95cdc09d7b1d8e684ea31a37fdd",
+    "txExplorerUrl": "https://sepolia.basescan.org/tx/0x0e56f882e4d62c30bf6e614d912c5fb13af838d33eff32b808a6ec3e2017a04d",
+    "minterAuthTx": "0x414c78c7067ff31e6ddff1006727cf595c38172f66a7cfd8d9afd1e2fd502845"
+  },
+  "receiver": {
+    "address": "0xae10b473c6502ea707657dca72e410adf13e41a6",
+    "deploymentTx": "0xbb8576ee81884f001813d65de92c7744757fffff6087879d7b741fc24a4375f3",
+    "explorerUrl": "https://sepolia.basescan.org/address/0xae10b473c6502ea707657dca72e410adf13e41a6",
+    "txExplorerUrl": "https://sepolia.basescan.org/tx/0xbb8576ee81884f001813d65de92c7744757fffff6087879d7b741fc24a4375f3",
+    "vaultAuthTx": "0xfd454abb1deaa8d61bc4b4fd4bd9bdc0d725e6b1f5b081add888554068bc36ec"
+  },
+  "dispatcher": {
+    "address": "0xbe142e597b7c20858a626310ec10259b8ae337da",
+    "deploymentTx": "0x70514a7a567d30d15844ba7caca760da6ae895c57b50824c2b60cc9962b858c6",
+    "explorerUrl": "https://sepolia.basescan.org/address/0xbe142e597b7c20858a626310ec10259b8ae337da",
+    "txExplorerUrl": "https://sepolia.basescan.org/tx/0x70514a7a567d30d15844ba7caca760da6ae895c57b50824c2b60cc9962b858c6"
+  },
+  "external": {
+    "chainlinkPriceFeed": "0x4aDC67696bA383F43DD60A9e78F2C97Fbbfc7cb1",
+    "layerZeroEndpoint": "0x6EDCE65403992e310A62460808c4b910D972f10f",
+    "bedrockGenlayerContract": "0x2C9dE921f5B10468D53f4bd49DFd98414d5f6380"
+  },
+  "deployedAt": "2026-09-12T06:22:40.021Z"
+}

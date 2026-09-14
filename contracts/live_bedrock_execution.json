@@ -1,0 +1,70 @@
+{
+  "txHash": "0xc18f470ccb5f3c33fa6756e455c54ef025d1b388c519ba3d5806c9210bd073ce",
+  "explorerUrl": "https://explorer-bradbury.genlayer.com/tx/0xc18f470ccb5f3c33fa6756e455c54ef025d1b388c519ba3d5806c9210bd073ce",
+  "executedAt": "2026-09-13T15:05:11.294Z",
+  "contractAddress": "0x2C9dE921f5B10468D53f4bd49DFd98414d5f6380",
+  "decidedRegime": "Stable",
+  "reasoning": "The protocol shows strong solvency and market integrity with a 285% collateralization ratio, low debt ceiling usage, near-perfect price and pool balance, and no security incidents or abnormal risk signals.",
+  "rawTelemetry": [
+    {
+      "symbol": "WETH",
+      "name": "Wrapped Ether",
+      "chain": "Base Sepolia (Native)",
+      "feedAddress": "0x4aDC67696bA383F43DD60A9e78F2C97Fbbfc7cb1",
+      "livePriceUSD": 2490.44,
+      "latencySec": 226,
+      "roundId": "18446744073709831604",
+      "lockedAmount": "0.0002",
+      "valueUSD": 0.49808800000000003
+    },
+    {
+      "symbol": "USDC",
+      "name": "USD Coin",
+      "chain": "Base Sepolia (Native)",
+      "feedAddress": "0xd30e2101a97dcbAeBCBC04F14C3f624E67A35165",
+      "livePriceUSD": 0.99985496,
+      "latencySec": 5378,
+      "roundId": "18446744073709552796",
+      "lockedAmount": "0",
+      "valueUSD": 0
+    },
+    {
+      "symbol": "LINK",
+      "name": "Chainlink Token",
+      "chain": "Base Sepolia (Native)",
+      "feedAddress": "0xb113F5A928BCfF189C998ab20d753a47F9dE5A61",
+      "livePriceUSD": 11.29705,
+      "latencySec": 68,
+      "roundId": "18446744073709827894",
+      "lockedAmount": "0",
+      "valueUSD": 0
+    },
+    {
+      "symbol": "WBTC",
+      "name": "Wrapped Bitcoin",
+      "chain": "Base Sepolia (Native)",
+      "feedAddress": "0x0FB99723Aee6f420beAD13e6bBB79b7E6F034298",
+      "livePriceUSD": 77197.78685386,
+      "latencySec": 134,
+      "roundId": "18446744073709855190",
+      "lockedAmount": "0",
+      "valueUSD": 0
+    },
+    {
+      "symbol": "DAI",
+      "name": "Dai Stablecoin",
+      "chain": "Ethereum Sepolia (Bridged)",
+      "feedAddress": "0x14866185B1962B63C3Ea9E03Bc1da838bab34C19",
+      "livePriceUSD": 0.99951176,
+      "latencySec": 31830,
+      "roundId": "18446744073709553216",
+      "lockedAmount": "0",
+      "valueUSD": 0
+    }
+  ],
+  "systemMetrics": {
+    "totalDebtUSD": 0,
+    "totalSystemCollateralUSD": 0.49808800000000003,
+    "systemCR": "Inf% (Zero Debt)"
+  }
+}

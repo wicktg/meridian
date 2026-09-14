@@ -1,0 +1,55 @@
+{
+  "vaultAddress": "0xc3f13ce0446e61ec1888e7bb7e9858d21aa7dd78",
+  "musdAddress": "0x22c7832ae38ebeb7003fa66b5184fc3361f3c2d1",
+  "borrower": "0xe4d9E11a2D4824CD49DCA396eD01f20FEDE6065E",
+  "liquidator": "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc",
+  "tests": {
+    "stabilityFeeAccrual": {
+      "depositTx": "0xde85d06b4e30cd74e4344d425f9ccdbd99c12d7f0d6e7a643439291d3ec63aac",
+      "mintTx": "0x1344ea511e58d99e2f9318019f918793013d364a611c6dcf9e2128cd5086e2e3",
+      "accrueTx": "0x213485787d4700afe65322d53403c2f61a6868f6f3cb7896ba9bf5b748dc4cde",
+      "depositTxUrl": "https://sepolia.basescan.org/tx/0xde85d06b4e30cd74e4344d425f9ccdbd99c12d7f0d6e7a643439291d3ec63aac",
+      "mintTxUrl": "https://sepolia.basescan.org/tx/0x1344ea511e58d99e2f9318019f918793013d364a611c6dcf9e2128cd5086e2e3",
+      "accrueTxUrl": "https://sepolia.basescan.org/tx/0x213485787d4700afe65322d53403c2f61a6868f6f3cb7896ba9bf5b748dc4cde",
+      "initialDebt": "2.00000016362253199",
+      "debtAfterAccrual": "2.00000057458146972",
+      "eventFeeWei": "410958937730",
+      "expectedFeeWei": "410958937730",
+      "timeElapsedSeconds": "324",
+      "status": "PASSED"
+    },
+    "regimeTransitionFeeRate": {
+      "lzDispatchTx": "0x3771b0fb8403b1bf322578c3f2f8bc07fd890f5070ee7a63abcf42a5228c43b7",
+      "lzRelayTx": "0x2b11bbfb95ff545f93def70028dd0083ee0064ee605db53e5cfaa45050830dee",
+      "undertowAccrueTx": "0xb1c0c270662ac7cb7212c00fa9cf361a05304072a5746603920302c0f77bafbe",
+      "lzDispatchTxUrl": "https://sepolia.basescan.org/tx/0x3771b0fb8403b1bf322578c3f2f8bc07fd890f5070ee7a63abcf42a5228c43b7",
+      "lzRelayTxUrl": "https://sepolia.basescan.org/tx/0x2b11bbfb95ff545f93def70028dd0083ee0064ee605db53e5cfaa45050830dee",
+      "undertowAccrueTxUrl": "https://sepolia.basescan.org/tx/0xb1c0c270662ac7cb7212c00fa9cf361a05304072a5746603920302c0f77bafbe",
+      "previousFeeBps": "200",
+      "newFeeBps": "1500",
+      "undertowEventFeeWei": "323439971155",
+      "expectedUndertowFeeWei": "323439971155",
+      "status": "PASSED"
+    },
+    "liquidation": {
+      "setHighPriceTx": "0x00dc3d4e9e90bcc1bb67d4d8b4c476430ac790d58c56b151f902c884d3a1c1b0",
+      "setDropPriceTx": "0x95639559aac1da8c60b1ac0948410276dea0f395742db5386b008e769e71458a",
+      "liquidateTx": "0x15713573dda327a4d85d3d2dcc20fbf07e227720b127d39c7a430919eda34ef9",
+      "clearOverrideTx": "0x684f24832c3f914891c5291f744d2f9aa10362971cc7b3be996b84658a4c8609",
+      "restoreTx": "0x0ac1d26aecfff3c9011ee8c2d22beab7bf57260446da83f300d1cddc7cb7cbeb",
+      "healthyRevertReason": "The contract function \"liquidate\" reverted.\n\nError: PositionHealthy(uint256 currentCRBps, uint256 requiredCRBps)\n                      (6749",
+      "setHighPriceTxUrl": "https://sepolia.basescan.org/tx/0x00dc3d4e9e90bcc1bb67d4d8b4c476430ac790d58c56b151f902c884d3a1c1b0",
+      "setDropPriceTxUrl": "https://sepolia.basescan.org/tx/0x95639559aac1da8c60b1ac0948410276dea0f395742db5386b008e769e71458a",
+      "liquidateTxUrl": "https://sepolia.basescan.org/tx/0x15713573dda327a4d85d3d2dcc20fbf07e227720b127d39c7a430919eda34ef9",
+      "clearOverrideTxUrl": "https://sepolia.basescan.org/tx/0x684f24832c3f914891c5291f744d2f9aa10362971cc7b3be996b84658a4c8609",
+      "restoreTxUrl": "https://sepolia.basescan.org/tx/0x0ac1d26aecfff3c9011ee8c2d22beab7bf57260446da83f300d1cddc7cb7cbeb",
+      "borrowerDebtBefore": "2.000000898021440875",
+      "borrowerDebtAfter": "0",
+      "seizedCollateralWeth": "0.0045",
+      "liquidatorWethBefore": "0",
+      "liquidatorWethAfter": "0.0045",
+      "status": "PASSED"
+    }
+  },
+  "completedAt": "2026-09-12T18:45:45.939Z"
+}

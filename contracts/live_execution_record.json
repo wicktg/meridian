@@ -1,0 +1,78 @@
+{
+  "executedAt": "2026-09-13T16:22:38.480Z",
+  "genlayer": {
+    "contract": "0x9aa7cf833cdff6a4b1b452238b8db6d650004965",
+    "txHash": "0x9329ab04a4a3c40829846c5af78db8676a38ee6859d7d1412ba4a686505a1c58",
+    "explorerUrl": "https://explorer-bradbury.genlayer.com/tx/0x9329ab04a4a3c40829846c5af78db8676a38ee6859d7d1412ba4a686505a1c58",
+    "decidedRegime": "Stable",
+    "reasoning": "The protocol is classified as Stable due to normal market conditions, with collateral and stablecoin pegs within normal bounds, fresh oracles, healthy system collateralization, and moderate volatility."
+  },
+  "layerZeroRelay": {
+    "receiver": "0x52e0827e33e25c5bea37498c3e321a86419a65e1",
+    "txHash": "0xa505070cef86bde8e95022787caf5d215dbdfe3e48d268079454f88cfb306fe9",
+    "explorerUrl": "https://sepolia.basescan.org/tx/0xa505070cef86bde8e95022787caf5d215dbdfe3e48d268079454f88cfb306fe9",
+    "guid": "0xd719b44d797455d62194cffa159e3893268ffe810b48de738423432d356a17d6"
+  },
+  "vault": {
+    "address": "0x54a3d0e5574c71bd2e696a3a514b496304e598d1",
+    "regime": 0,
+    "requiredCR": "150%",
+    "stabilityFee": "2%",
+    "mintHalted": false,
+    "reasoning": "The protocol is classified as Stable due to normal market conditions, with collateral and stablecoin pegs within normal bounds, fresh oracles, healthy system collateralization, and moderate volatility."
+  },
+  "telemetry": {
+    "mainnetFeeds": {
+      "ETH/USD": {
+        "price": 2500.41873145,
+        "latencySec": 542,
+        "roundId": "129127208515966894899",
+        "updatedAt": 1789315943
+      },
+      "BTC/USD": {
+        "price": 77162.8966304,
+        "latencySec": 1082,
+        "roundId": "129127208515966885554",
+        "updatedAt": 1789315403
+      },
+      "LINK/USD": {
+        "price": 11.2891,
+        "latencySec": 806,
+        "roundId": "129127208515966893612",
+        "updatedAt": 1789315679
+      },
+      "stETH/USD": {
+        "price": 2487.86563067,
+        "latencySec": 2318,
+        "roundId": "36893488147419125257",
+        "updatedAt": 1789314167
+      },
+      "DAI/USD": {
+        "price": 0.99966264,
+        "latencySec": 1490,
+        "roundId": "129127208515966878598",
+        "updatedAt": 1789314995
+      },
+      "USDC/USD": {
+        "price": 0.99982383,
+        "latencySec": 30062,
+        "roundId": "55340232221128656038",
+        "updatedAt": 1789286423
+      }
+    },
+    "volatility": {
+      "eth1hChangePct": 0.34910549540077523,
+      "eth24hChangePct": -0.8116637909510863
+    },
+    "pegDeviations": {
+      "stEthDiscountPct": -0.5020399432346455,
+      "daiPegDevPct": -0.033735999999995325,
+      "usdcPegDevPct": -0.017617000000003102
+    },
+    "vaultMetrics": {
+      "totalVaultUSD": 0.5000837462900001,
+      "totalDebtUSD": 0,
+      "systemCR": "Inf% (Zero Debt)"
+    }
+  }
+}

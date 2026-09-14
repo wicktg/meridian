@@ -1,0 +1,112 @@
+{
+  "testedAt": "2026-09-12T06:42:18.966Z",
+  "vault": "0x965cd967308f89cd8cf0dca7ade8b3f715789aab",
+  "tester": "0xe4d9E11a2D4824CD49DCA396eD01f20FEDE6065E",
+  "tests": {
+    "usdcIsolated": {
+      "token": "USDC",
+      "depositTx": "0x7751b7e89ef72627b1f10520a11d867f706990f0a9501b152d07da75803305ea",
+      "mintTx": "0x9560a6eee41fe076f1c10ce1e907f7a3f1418d7b8cf4d96c565357109a3aa37f",
+      "repayTx": "0x1373454d76d598e2ab09a2c0d3efcd6c3458de0e5a8b97ead33e018d0b7dd54d",
+      "withdrawTx": "0x04dea53f02361758009af2f44757a8ad795bc0d9ae49d02c07ef22b94b25f453",
+      "status": "PASSED"
+    },
+    "wbtcIsolated": {
+      "token": "WBTC",
+      "depositTx": "0xdf18d5a6da7355b51e4899edc6c4699503c1866011d3a82aef01a2b62d8f6685",
+      "mintTx": "0xf717a44c6301cd475f3e0af9aeac8fe7cf3decde208faf102cbe0fea056ddaf9",
+      "repayTx": "0xf205663f8ad01c5a41299b511fa3e64446332ee9ce0da5428fcef01ed8812819",
+      "withdrawTx": "0x5df11a9492c7317f64ec43a1a04fb6a0e426db055d98fb38bc9d95a6ecfd370d",
+      "status": "PASSED"
+    },
+    "linkIsolated": {
+      "token": "LINK",
+      "depositTx": "0xcdf20fc82083aea0d47cc98260330bde71d7a05300cf6e8ce3bf7842f39186c1",
+      "mintTx": "0x4e9116ccc2aa2b49bdad1835f1b653f04f97970837eb5319a826ae1660b1de2d",
+      "repayTx": "0xe353aa10a75d6f75b1f4d192a999b9338e88b6f0951a1e0022cd7703336cf688",
+      "withdrawTx": "0x1d3912554160802ed0ba24ef64672b38522e00618a0c144fd620009afda6cb36",
+      "status": "PASSED"
+    },
+    "blendedPosition": {
+      "wethDepositTx": "0x308358a7ecd9620c91950aaf5c988f1bdce5d9d7ef7fe596d2e156f762eaac05",
+      "usdcDepositTx": "0xd1ad7040f402949bbab3e11c1645d06d77aac4d6b81a48c8f524742e2ce19678",
+      "wethValueUSD": "2.51515243372",
+      "usdcValueUSD": "1.49977413",
+      "blendedTotalUSD": "4.01492656372",
+      "mintTx": "0x1c5d6bf8de4ac5e13d1695b3d0ab1841055f3280ec62e56997adce79c8d7b258",
+      "repayTx": "0xcae0e2855d19a664437e5904ddd317c476b50389e9af2bb656ca1fa0add06819",
+      "mintedAmountMusd": "2.2",
+      "status": "PASSED"
+    },
+    "crossAssetRegimeEnforcement": {
+      "eulerEvidence": "Confirmed incident evidence: on 13 March 2023 Euler Finance disclosed a flash-loan attack that drained approximately $197 million from the lending protocol. This is an active confirmed exploit event with material protocol-loss and insolvency risk.",
+      "lzDispatchTx": "0x9b15d95db9fc7f11d1c9663ac614a48aff18e4522a912d322164af02a936a604",
+      "genlayerTxHash": "0xc508da5c8be408912f4547b551477870d94d0d1d109f92c96bb789878813e6ef",
+      "lzRelayTx": "0x00192eb5142cafa56aaec4aad57e7f967caa377e536df05906217dcde71edc77",
+      "regime": "Undertow",
+      "mintHalted": true,
+      "requiredCRBps": "25000",
+      "revertProofs": {
+        "WETH": {
+          "token": "WETH",
+          "address": "0x4200000000000000000000000000000000000006",
+          "txHash": "0x3dde2931d2179df8f61128da55d66217ec8427d9542d93edce9ffc3b8f284fdd",
+          "explorerUrl": "https://sepolia.basescan.org/tx/0x3dde2931d2179df8f61128da55d66217ec8427d9542d93edce9ffc3b8f284fdd",
+          "status": "reverted"
+        },
+        "USDC": {
+          "token": "USDC",
+          "address": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+          "txHash": "0xbb5e1e4f466f91498a76fe83023b83325baf624741ef7ac460554364a370abaf",
+          "explorerUrl": "https://sepolia.basescan.org/tx/0xbb5e1e4f466f91498a76fe83023b83325baf624741ef7ac460554364a370abaf",
+          "status": "reverted"
+        },
+        "LINK": {
+          "token": "LINK",
+          "address": "0xE4aB69C077896252FAFBD49EFD26B5D171A32410",
+          "txHash": "0x13a552f2cd374c611eda2578b095d5b283303ca8ad9ecfeaa92bfee074461b75",
+          "explorerUrl": "https://sepolia.basescan.org/tx/0x13a552f2cd374c611eda2578b095d5b283303ca8ad9ecfeaa92bfee074461b75",
+          "status": "reverted"
+        },
+        "WBTC": {
+          "token": "WBTC",
+          "address": "0x54114591963CF60EF3aA63bEfD6eC263D98145a4",
+          "txHash": "0xb7a3633c0d6b154edaf4502b193bc0329daff77c597b9880456ddcf21036ddbe",
+          "explorerUrl": "https://sepolia.basescan.org/tx/0xb7a3633c0d6b154edaf4502b193bc0329daff77c597b9880456ddcf21036ddbe",
+          "status": "reverted"
+        }
+      },
+      "status": "PASSED"
+    },
+    "sanityCheck": {
+      "assets": {
+        "WETH": {
+          "tokenAddress": "0x4200000000000000000000000000000000000006",
+          "priceUSD": "2515.15243372",
+          "userBalance": "0.001",
+          "valueUSD": "2.51515243372"
+        },
+        "USDC": {
+          "tokenAddress": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+          "priceUSD": "0.99984942",
+          "userBalance": "1.5",
+          "valueUSD": "1.49977413"
+        },
+        "LINK": {
+          "tokenAddress": "0xE4aB69C077896252FAFBD49EFD26B5D171A32410",
+          "priceUSD": "11.53393766",
+          "userBalance": "0.2",
+          "valueUSD": "2.306787532"
+        },
+        "WBTC": {
+          "tokenAddress": "0x54114591963CF60EF3aA63bEfD6eC263D98145a4",
+          "priceUSD": "77304.89",
+          "userBalance": "0.00005",
+          "valueUSD": "3.8652445"
+        }
+      },
+      "totalBlendedCollateralUSD": "10.18695859572",
+      "status": "PASSED"
+    }
+  }
+}

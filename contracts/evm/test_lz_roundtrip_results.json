@@ -1,0 +1,51 @@
+{
+  "testName": "Euler Exploit / Undertow Cross-Chain Verification Loop",
+  "testedAt": "2026-09-12T06:26:32.476Z",
+  "account": "0xe4d9E11a2D4824CD49DCA396eD01f20FEDE6065E",
+  "contracts": {
+    "vault": "0x9b5a5ae9fd46f95cdc09d7b1d8e684ea31a37fdd",
+    "receiver": "0xae10b473c6502ea707657dca72e410adf13e41a6",
+    "dispatcher": "0xbe142e597b7c20858a626310ec10259b8ae337da",
+    "bedrockGenLayer": "0x2C9dE921f5B10468D53f4bd49DFd98414d5f6380"
+  },
+  "steps": {
+    "deposit": {
+      "action": "deposit_initial",
+      "amountEth": "0.002",
+      "txHash": "0x2841ae31451d383b4200538fbf3ed066a3e058d0af23ffa686a102aa4fd686e8",
+      "explorerUrl": "https://sepolia.basescan.org/tx/0x2841ae31451d383b4200538fbf3ed066a3e058d0af23ffa686a102aa4fd686e8",
+      "maxMintableUnderStable": "6.698017828613333333"
+    },
+    "dispatch": {
+      "action": "lz_request_dispatched",
+      "evidence": "Confirmed incident evidence: on 13 March 2023 Euler Finance disclosed a flash-loan attack that drained approximately $197 million from the lending protocol. This is an active confirmed exploit event with material protocol-loss and insolvency risk.",
+      "txHash": "0x5009d32362aa3644eefad87072030b7a790564ce5732c9d75772e1f9808fc701",
+      "explorerUrl": "https://sepolia.basescan.org/tx/0x5009d32362aa3644eefad87072030b7a790564ce5732c9d75772e1f9808fc701",
+      "nonce": "2",
+      "guid": "0xb9b9f25fe84b1b6b0b0607eae044152f9bcf048d09e883c025d8e2c70a1d49c3"
+    },
+    "genlayerAssessment": {
+      "action": "genlayer_ai_assessment",
+      "txHash": "0xc508da5c8be408912f4547b551477870d94d0d1d109f92c96bb789878813e6ef",
+      "explorerUrl": "https://explorer-bradbury.genlayer.com/tx/0xc508da5c8be408912f4547b551477870d94d0d1d109f92c96bb789878813e6ef",
+      "regime": "Undertow",
+      "reasoning": "The evidence confirms a $197 million flash-loan exploit on Euler Finance, causing material protocol loss and insolvency risk."
+    },
+    "relay": {
+      "action": "lz_regime_relayed",
+      "txHash": "0xc6a9b33a590016fb27c6c028ac3f7936df232c461c8f09aab5e521e9dcf339b0",
+      "explorerUrl": "https://sepolia.basescan.org/tx/0xc6a9b33a590016fb27c6c028ac3f7936df232c461c8f09aab5e521e9dcf339b0",
+      "updatedRegime": "Undertow (2)",
+      "updatedRequiredCRBps": "25000",
+      "updatedMintHalted": true,
+      "reasoning": "The evidence confirms a $197 million flash-loan exploit on Euler Finance, causing material protocol loss and insolvency risk."
+    },
+    "mintRejection": {
+      "action": "mint_rejection_test",
+      "attemptedAmountMusd": "2",
+      "rejected": true,
+      "rejectionReason": "The contract function \"mint\" reverted.",
+      "note": "Call was valid under Stable (150% CR), but blocked under Undertow (250% CR & mintHalted=true)"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "genlayer-project",
+  "type": "module",
+  "devDependencies": {
+    "dotenv": "^16.4.7",
+    "genlayer-js": "^1.1.8",
+    "tsx": "^4.19.3"
+  },
+  "dependencies": {
+    "solc": "^0.8.28"
+  }
+}

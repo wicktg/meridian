@@ -1,0 +1,10 @@
+{
+  "txHash": "0x8400026c73ab480399a36281d5eb7322b7261c9a036dae73f07e27ffce5f1aa9",
+  "explorerUrl": "https://explorer-bradbury.genlayer.com/tx/0x8400026c73ab480399a36281d5eb7322b7261c9a036dae73f07e27ffce5f1aa9",
+  "timestamp": "2026-09-13T14:57:29.894Z",
+  "state": {
+    "evidence": "Market Telemetry Report (Live Sep 13, 2026):\n- Asset: WETH/USD = $3,452.10 (Chainlink: $3,451.95, Uniswap TWAP: $3,452.20, Divergence: 0.007%).\n- Protocol Collateralization Ratio: 285% (Safe threshold: 140%).\n- Debt Ceiling Utilization: 42% ($21M minted out of $50M cap).\n- Liquidity Pool Health: Curve mUSD/USDC pool balance is 50.2% / 49.8%, depth $45M within 15bps.\n- Protocol Status: Clean audit track record, zero security disclosures, borrow APR stable at 3.25%.",
+    "reasoning": "The protocol shows strong solvency and market integrity with a 285% collateralization ratio, low debt ceiling usage, near-perfect price and pool balance, and no security incidents or abnormal risk signals.",
+    "regime": "Stable"
+  }
+}

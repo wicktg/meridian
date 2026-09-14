@@ -1,0 +1,65 @@
+{
+  "testRunAt": "2026-09-12T12:17:35.142Z",
+  "account": "0xe4d9E11a2D4824CD49DCA396eD01f20FEDE6065E",
+  "contracts": {
+    "ethereumSepoliaLock": "0xb171b11983f2cd5f9831184353db68f8a8a5c7a6",
+    "baseSepoliaVault": "0xfb437be84a727e3f7f6a1b5e5f1d5a4b2463f92a",
+    "baseSepoliaBridgeReceiver": "0x2e364ebfc5c22e146c6b1c3cef01f518d0bd54b1",
+    "musdToken": "0x22c7832ae38ebeb7003fa66b5184fc3361f3c2d1",
+    "bedrockGenLayer": "0x2C9dE921f5B10468D53f4bd49DFd98414d5f6380"
+  },
+  "tests": {
+    "test1_isolated_dai": {
+      "status": "PASSED",
+      "lockTx": "0x5bca5f726a37744e6931215396c7d97443e2b4887912a2c28e5fa994c10042b7",
+      "lockExplorerUrl": "https://sepolia.etherscan.io/tx/0x5bca5f726a37744e6931215396c7d97443e2b4887912a2c28e5fa994c10042b7",
+      "relayTx": "0xec0e264c53546098041f97c44b117dece06430f0090cc84c88396e0b0d69949b",
+      "relayExplorerUrl": "https://sepolia.basescan.org/tx/0xec0e264c53546098041f97c44b117dece06430f0090cc84c88396e0b0d69949b",
+      "mintTx": "0x1ff76b88b571a301ad83945cc5b85ca14303597480338240b31b0433f3cfc5cf",
+      "mintExplorerUrl": "https://sepolia.basescan.org/tx/0x1ff76b88b571a301ad83945cc5b85ca14303597480338240b31b0433f3cfc5cf",
+      "creditedCollateralUSD": "$0.99972718",
+      "mintedDebtMusd": "0.4 mUSD"
+    },
+    "test2_isolated_steth": {
+      "status": "PASSED",
+      "lockTx": "0x2cbc86a91d597b3d3dc490596b336a074ed2cd4ae6d13dfb88a741be90549047",
+      "lockExplorerUrl": "https://sepolia.etherscan.io/tx/0x2cbc86a91d597b3d3dc490596b336a074ed2cd4ae6d13dfb88a741be90549047",
+      "relayTx": "0x1c02cfee509f3bd421b61dd049d6e648500810a2f70c08374ee7e3d00406b7bf",
+      "relayExplorerUrl": "https://sepolia.basescan.org/tx/0x1c02cfee509f3bd421b61dd049d6e648500810a2f70c08374ee7e3d00406b7bf",
+      "mintTx": "0x6428c95aacac4d4982338701e8c7206cccced3aff3813c12ee2fd4c48197f030",
+      "mintExplorerUrl": "https://sepolia.basescan.org/tx/0x6428c95aacac4d4982338701e8c7206cccced3aff3813c12ee2fd4c48197f030",
+      "totalCollateralUSD": "$2.26525718",
+      "totalDebtMusd": "0.4 mUSD"
+    },
+    "test3_blended_mint": {
+      "status": "PASSED",
+      "wethDepositTx": "0xb21916ad02952d67777a102bdf3cb73874b005b3948d42e6f88991ff8c2d9453",
+      "wethDepositExplorerUrl": "https://sepolia.basescan.org/tx/0xb21916ad02952d67777a102bdf3cb73874b005b3948d42e6f88991ff8c2d9453",
+      "blendedMintTx": "0x07792bbb3efdda73279c87bbe33ac574f3c0ad13cabce9fdc3c0828abbb64ec2",
+      "blendedMintExplorerUrl": "https://sepolia.basescan.org/tx/0x07792bbb3efdda73279c87bbe33ac574f3c0ad13cabce9fdc3c0828abbb64ec2",
+      "blendedCollateralUSD": "$3.53227218",
+      "totalDebtMusd": "0.9 mUSD"
+    },
+    "test4_withdrawal_roundtrip": {
+      "status": "PASSED",
+      "repayTx": "0xfbe9036fafc8d959987293775bc286ed6b707f618c7bebca8b240ec6197d8fcc",
+      "repayExplorerUrl": "https://sepolia.basescan.org/tx/0xfbe9036fafc8d959987293775bc286ed6b707f618c7bebca8b240ec6197d8fcc",
+      "withdrawTx": "0x1de3b8e01b0589895878c71caa15f45ff32c9575c1c8aa1cb542deb2c5bafcd1",
+      "withdrawExplorerUrl": "https://sepolia.basescan.org/tx/0x1de3b8e01b0589895878c71caa15f45ff32c9575c1c8aa1cb542deb2c5bafcd1",
+      "unlockTx": "0xa8b7afc2c2d3be28bb3e6e3e9219f305c5a929f181fe4028f49630be5c80c91d",
+      "unlockExplorerUrl": "https://sepolia.etherscan.io/tx/0xa8b7afc2c2d3be28bb3e6e3e9219f305c5a929f181fe4028f49630be5c80c91d",
+      "unlockedAmount": "1 DAI"
+    },
+    "test5_regime_enforcement": {
+      "status": "PASSED",
+      "genlayerTx": "0x246bc1da6673a8bed625966076494d9d8cb9f04121e756e4d196965fb7aab024",
+      "genlayerExplorerUrl": "https://explorer-bradbury.genlayer.com/tx/0x246bc1da6673a8bed625966076494d9d8cb9f04121e756e4d196965fb7aab024",
+      "regimeUpdateTx": "0x9f1255d36044d9bbaf56134f8a4c531277aa60deedba8973577139834909ef4d",
+      "regimeUpdateExplorerUrl": "https://sepolia.basescan.org/tx/0x9f1255d36044d9bbaf56134f8a4c531277aa60deedba8973577139834909ef4d",
+      "onChainRevertTx": "0x47c6a4ab65a3820b30b0ebeb05475ccbf0163f2c0fa1cd54aab06fde395d23b7",
+      "onChainRevertExplorerUrl": "https://sepolia.basescan.org/tx/0x47c6a4ab65a3820b30b0ebeb05475ccbf0163f2c0fa1cd54aab06fde395d23b7",
+      "revertStatus": "reverted",
+      "resetRegimeTx": "0x089e8799c3da61f64f49cd87aebf555c05e2b50dcd7591c2f26e158becd70db4"
+    }
+  }
+}

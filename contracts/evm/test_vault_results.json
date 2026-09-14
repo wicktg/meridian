@@ -1,0 +1,42 @@
+{
+  "network": "base-sepolia",
+  "chainId": 84532,
+  "account": "0xe4d9E11a2D4824CD49DCA396eD01f20FEDE6065E",
+  "liveEthPriceUSD": "2511.45",
+  "steps": {
+    "deposit": {
+      "action": "deposit",
+      "amountEth": "0.002",
+      "txHash": "0xa293c1ea872140e5fde8b8a610f085d3974dc69f2d6c5a0afb37bac04a7374ae",
+      "explorerUrl": "https://sepolia.basescan.org/tx/0xa293c1ea872140e5fde8b8a610f085d3974dc69f2d6c5a0afb37bac04a7374ae",
+      "collateralRecordedEth": "0.002",
+      "status": "success"
+    },
+    "mint": {
+      "action": "mint",
+      "amountMusd": "1",
+      "txHash": "0x54f5f4e8db6efa982fd0a03c19445fef40b776429eb3fc493c2add98e2b79000",
+      "explorerUrl": "https://sepolia.basescan.org/tx/0x54f5f4e8db6efa982fd0a03c19445fef40b776429eb3fc493c2add98e2b79000",
+      "musdBalanceRecorded": "1",
+      "debtRecorded": "1",
+      "status": "success"
+    },
+    "repay": {
+      "action": "repay",
+      "amountMusd": "1",
+      "txHash": "0xff753fa64e8cf9304af65663724b2f9ec4d4d362ec7392d0a30ca97c602a2e52",
+      "explorerUrl": "https://sepolia.basescan.org/tx/0xff753fa64e8cf9304af65663724b2f9ec4d4d362ec7392d0a30ca97c602a2e52",
+      "musdBalanceRecorded": "0",
+      "debtRecorded": "0",
+      "status": "success"
+    },
+    "withdraw": {
+      "action": "withdraw",
+      "amountEth": "0.002",
+      "txHash": "0x46ae498d3b548baa0dbde64641ffabffc7dd9b14a088fc809a327567cd313759",
+      "explorerUrl": "https://sepolia.basescan.org/tx/0x46ae498d3b548baa0dbde64641ffabffc7dd9b14a088fc809a327567cd313759",
+      "remainingCollateralEth": "0",
+      "status": "success"
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "network": "ethereum-sepolia",
+  "chainId": 11155111,
+  "deployer": "0xe4d9E11a2D4824CD49DCA396eD01f20FEDE6065E",
+  "lock": {
+    "address": "0xb171b11983f2cd5f9831184353db68f8a8a5c7a6",
+    "deploymentTx": "0x389f28c2c6f90cce46465bf8cc756f0976d7aed1859a03b2654a68e4dbaf3ca8",
+    "explorerUrl": "https://sepolia.etherscan.io/address/0xb171b11983f2cd5f9831184353db68f8a8a5c7a6",
+    "txExplorerUrl": "https://sepolia.etherscan.io/tx/0x389f28c2c6f90cce46465bf8cc756f0976d7aed1859a03b2654a68e4dbaf3ca8",
+    "blockNumber": 11687323
+  },
+  "tokens": {
+    "DAI": {
+      "address": "0xFF34B3d4Aee8ddCd6F9AFFFB6Fe49bD371b8a357",
+      "feed": "0x14866185B1962B63C3Ea9E03Bc1da838bab34C19",
+      "decimals": 18,
+      "approveTx": "0xc8365c99d331f5e89663a725d80698232877f2075eb62eac342a16bf1c9abb29"
+    },
+    "stETH": {
+      "address": "0x3e3FE7dBc6B4C189E7128855dD526361c49b40Af",
+      "feed": "0x694AA1769357215DE4FAC081bf1f309aDC325306",
+      "decimals": 18,
+      "approveTx": "0xab25fb1d2e0270d17ca7e80dd4597e3c6b8c4f83410834f9bd69530fa875fcc5"
+    }
+  },
+  "endpoint": "0x6EDCE65403992e310A62460808c4b910D972f10f",
+  "baseEndpointEid": 40245,
+  "deployedAt": "2026-09-12T07:01:04.481Z"
+}

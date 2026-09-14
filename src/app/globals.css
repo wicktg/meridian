@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans:
+    var(--font-sans), "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, sans-serif;
+  --font-mono: var(--font-space-mono), monospace;
+}
+
+html {
+  overflow-x: clip;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+body {
+  overflow-x: clip;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+/* Hide scrollbar universally for all elements across Chrome, Edge, Safari, Firefox */
+* {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+*::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* Universal elimination of black focus outlines / rings on buttons & inputs */
+button,
+button:focus,
+button:focus-visible,
+button:active,
+input,
+input:focus,
+input:focus-visible,
+select,
+select:focus,
+select:focus-visible,
+textarea,
+textarea:focus,
+textarea:focus-visible,
+[tabindex],
+[tabindex]:focus,
+[tabindex]:focus-visible {
+  outline: none !important;
+  box-shadow: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Neocean Radiant Background Gradient with prominent rosy/pinkish mid-tones */
+.neocean-gradient {
+  background: linear-gradient(
+    180deg,
+    #9850df 0%,
+    #a256db 10%,
+    #b15ed3 22%,
+    #c067c9 34%,
+    #cd71bf 46%,
+    #d87eb9 56%,
+    #e296b7 66%,
+    #ebb0b6 76%,
+    #f3c5b5 85%,
+    #fadbb6 92%,
+    #fce8c4 97%,
+    #ffefd5 100%
+  );
+}
+
+/* Static grain overlay - 0 JS runtime, 0 filters, fast rendering */
+.film-grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("/grain.png");
+  background-repeat: repeat;
+  opacity: 0.035;
+  pointer-events: none;
+  z-index: 2;
+}
