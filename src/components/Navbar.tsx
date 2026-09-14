@@ -28,7 +28,9 @@ export default function Navbar({ onConnectWallet }: NavbarProps) {
           Docs
         </Link>
         <a
-          href="#github"
+          href="https://github.com/wicktg/meridian"
+          target="_blank"
+          rel="noopener noreferrer"
           className="text-white/70 hover:text-white transition-colors duration-200"
         >
           Github
