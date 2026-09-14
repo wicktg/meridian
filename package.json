@@ -26,5 +26,14 @@
     "eslint-config-next": "16.3.4",
     "tailwindcss": "^4",
     "typescript": "^5"
+  },
+  "overrides": {
+    "connectkit": {
+      "react": "$react",
+      "react-dom": "$react-dom"
+    },
+    "@aave/account": {
+      "wagmi": "$wagmi"
+    }
   }
 }
