@@ -107,12 +107,12 @@ export default function DocsPage() {
             BaseScan ↗
           </a>
           <a
-            href="https://explorer-bradbury.genlayer.com/address/0x2C9dE921f5B10468D53f4bd49DFd98414d5f6380"
+            href="https://explorer-studio-dev.genlayer.com/address/0x4423BC844C77437Ca5BE285f712E5c6369f2E351"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-gray-900 transition-colors hidden sm:inline"
           >
-            GenLayer Bradbury ↗
+            GenLayer Studio Next ↗
           </a>
         </div>
       </header>
@@ -200,7 +200,7 @@ export default function DocsPage() {
                   <div>
                     Every contract referenced in these docs is linked with its
                     real deployed address on Base Sepolia, Ethereum Sepolia, and
-                    GenLayer Bradbury Testnet. See{" "}
+                    GenLayer Studio Next. See{" "}
                     <button
                       type="button"
                       onClick={() => handleSelectArticle("contract-directory")}
@@ -256,7 +256,7 @@ export default function DocsPage() {
                             Risk Engine Host
                           </td>
                           <td className="py-2.5 px-4 text-gray-900">
-                            GenLayer Testnet Bradbury
+                            GenLayer Studio Next
                           </td>
                         </tr>
                       </tbody>
@@ -271,16 +271,16 @@ export default function DocsPage() {
               <div className="space-y-5 text-[15px] leading-relaxed text-gray-600">
                 <p>
                   Meridian separates responsibilities across three distinct
-                  on-chain networks: GenLayer Bradbury Testnet, Base Sepolia,
-                  and Ethereum Sepolia.
+                  on-chain networks: GenLayer Studio Next, Base Sepolia, and
+                  Ethereum Sepolia.
                 </p>
 
                 <h3 className="text-[16px] font-semibold text-gray-900 pt-2">
-                  1. GenLayer Bradbury Testnet (Risk Consensus)
+                  1. GenLayer Studio Next (Risk Consensus)
                 </h3>
                 <p>
                   GenLayer hosts the BedrockCore contract
-                  (0x2C9dE921f5B10468D53f4bd49DFd98414d5f6380). Validators run
+                  (0x4423BC844C77437Ca5BE285f712E5c6369f2E351). Validators run
                   nondeterministic Python executions backed by LLMs to evaluate
                   market data, oracle latencies, and price breaks. Consensus
                   produces a verified regime index and plain-text reasoning for
@@ -450,7 +450,12 @@ export default function DocsPage() {
                       Regime 0: Stable
                     </div>
                     <p className="text-[13px] text-gray-600">
-                      Applies a standard minimum collateralization ratio of 150.0% and an annualized stability fee of 2.00%. Triggered when collateral peg deviation remains below 1.0%, oracle heartbeats stay under 1200 seconds, and asset volatility is within standard parameters. Borrowing and minting are fully authorized.
+                      Applies a standard minimum collateralization ratio of
+                      150.0% and an annualized stability fee of 2.00%. Triggered
+                      when collateral peg deviation remains below 1.0%, oracle
+                      heartbeats stay under 1200 seconds, and asset volatility
+                      is within standard parameters. Borrowing and minting are
+                      fully authorized.
                     </p>
                   </div>
 
@@ -459,7 +464,12 @@ export default function DocsPage() {
                       Regime 1: Unsettled
                     </div>
                     <p className="text-[13px] text-gray-600">
-                      Elevates the minimum collateralization ratio to 180.0% and increases the annualized stability fee to 5.00%. Triggered when collateral peg deviation ranges between 1.0% and 3.0%, volatility exceeds 5.0%, or oracle update latencies rise. Minting remains active with this increased safety buffer.
+                      Elevates the minimum collateralization ratio to 180.0% and
+                      increases the annualized stability fee to 5.00%. Triggered
+                      when collateral peg deviation ranges between 1.0% and
+                      3.0%, volatility exceeds 5.0%, or oracle update latencies
+                      rise. Minting remains active with this increased safety
+                      buffer.
                     </p>
                   </div>
 
@@ -468,7 +478,12 @@ export default function DocsPage() {
                       Regime 2: Undertow
                     </div>
                     <p className="text-[13px] text-gray-600">
-                      Imposes a high stress minimum collateralization ratio of 250.0% and an annualized stability fee of 15.00%. New minting is halted immediately to protect vault solvency. Triggered by severe depeg breaking 3.0% from parity, extreme spot price drops, or offline feeds. Loan repayments and liquidations remain fully operational.
+                      Imposes a high stress minimum collateralization ratio of
+                      250.0% and an annualized stability fee of 15.00%. New
+                      minting is halted immediately to protect vault solvency.
+                      Triggered by severe depeg breaking 3.0% from parity,
+                      extreme spot price drops, or offline feeds. Loan
+                      repayments and liquidations remain fully operational.
                     </p>
                   </div>
                 </div>
@@ -695,7 +710,7 @@ export default function DocsPage() {
                         <td className="py-2.5 px-3">Consensus</td>
                         <td className="py-2.5 px-3">
                           <a
-                            href="https://explorer-bradbury.genlayer.com/tx/0x5b518b0f4067696f17418144b38d1b2f44ed766d12c9981b8ed47263922e4aca"
+                            href="https://explorer-studio-dev.genlayer.com/tx/0x5b518b0f4067696f17418144b38d1b2f44ed766d12c9981b8ed47263922e4aca"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-[#c067c9] underline hover:text-gray-900"
@@ -717,7 +732,7 @@ export default function DocsPage() {
                         <td className="py-2.5 px-3">Consensus</td>
                         <td className="py-2.5 px-3">
                           <a
-                            href="https://explorer-bradbury.genlayer.com/tx/0xdb30d81111e7838985d7437a436723d0a2a34f1f58025eb305df2628321a934b"
+                            href="https://explorer-studio-dev.genlayer.com/tx/0xdb30d81111e7838985d7437a436723d0a2a34f1f58025eb305df2628321a934b"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-[#c067c9] underline hover:text-gray-900"
@@ -739,7 +754,7 @@ export default function DocsPage() {
                         <td className="py-2.5 px-3">Consensus</td>
                         <td className="py-2.5 px-3">
                           <a
-                            href="https://explorer-bradbury.genlayer.com/tx/0x7d1714111dcf3d12ef319a33c45aade89f97b8c64ee94b5e9f55334aab78d401"
+                            href="https://explorer-studio-dev.genlayer.com/tx/0x7d1714111dcf3d12ef319a33c45aade89f97b8c64ee94b5e9f55334aab78d401"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-[#c067c9] underline hover:text-gray-900"
@@ -847,7 +862,7 @@ export default function DocsPage() {
               <div className="space-y-5 text-[15px] leading-relaxed text-gray-600">
                 <p>
                   Verified contract addresses across Base Sepolia, Ethereum
-                  Sepolia, and GenLayer Bradbury Testnet:
+                  Sepolia, and GenLayer Studio Next:
                 </p>
 
                 <div className="space-y-2.5 my-4">
@@ -929,19 +944,19 @@ export default function DocsPage() {
                         BedrockCore Intelligent Contract
                       </div>
                       <div className="text-[11.5px] text-gray-500">
-                        GenLayer Bradbury Testnet (Chain ID 4221)
+                        GenLayer Studio Next (Chain ID 61997)
                       </div>
                     </div>
                     <div className="flex items-center gap-2">
                       <span className="font-mono text-[11.5px] text-gray-800 bg-gray-50 px-2 py-0.5 rounded border border-gray-200">
-                        0x2C9dE921f5B10468D53f4bd49DFd98414d5f6380
+                        0x4423BC844C77437Ca5BE285f712E5c6369f2E351
                       </span>
                       <button
                         type="button"
                         onClick={() =>
                           copyToClipboard(
                             "bedrock",
-                            "0x2C9dE921f5B10468D53f4bd49DFd98414d5f6380",
+                            "0x4423BC844C77437Ca5BE285f712E5c6369f2E351",
                           )
                         }
                         className="text-[11.5px] text-gray-500 hover:text-gray-900 px-2 py-0.5 rounded border border-gray-200 cursor-pointer"
@@ -949,7 +964,7 @@ export default function DocsPage() {
                         {copiedKey === "bedrock" ? "Copied" : "Copy"}
                       </button>
                       <a
-                        href="https://explorer-bradbury.genlayer.com/address/0x2C9dE921f5B10468D53f4bd49DFd98414d5f6380"
+                        href="https://explorer-studio-dev.genlayer.com/address/0x4423BC844C77437Ca5BE285f712E5c6369f2E351"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-[11.5px] text-[#c067c9] hover:underline"

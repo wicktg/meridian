@@ -1,8 +1,10 @@
-# { "Depends": "py-genlayer:1jb45aa8ynh2a9c9xn3b7qqh8sm5q93hwfp7jqmwsfhh8jpz09h6" }
+# v0.3.0
+# { "Depends": "py-genlayer:5jycge4q8k23462jtb0b9fyey1s9qz928sz2nbrd9mg4sxqg2qng" }
 
 import json
 import re
-from genlayer import *
+import genlayer as gl
+
 
 def clean_reasoning(text: str) -> str:
     if not text:
@@ -13,6 +15,7 @@ def clean_reasoning(text: str) -> str:
     cleaned = re.sub(r'\s*\|\s*$', '', cleaned)
     cleaned = re.sub(r'^\s*\|\s*', '', cleaned)
     return re.sub(r'\s+', ' ', cleaned).strip()
+
 
 def extract_asset_evidence(raw: str, asset: str) -> str:
     sym = asset.upper().strip()
@@ -42,7 +45,8 @@ def extract_asset_evidence(raw: str, asset: str) -> str:
         return "ETH spot $2511.04, Chainlink fresh (289s), volatility normal (0.35%)."
     return raw
 
-class BedrockCore(gl.Contract):
+
+class BedrockCore(gl.contract.Contract):
     eth_regime: str
     eth_reasoning: str
     dai_regime: str
@@ -98,6 +102,10 @@ class BedrockCore(gl.Contract):
             "evidence": self.last_evidence,
         }
 
+    @gl.public.view
+    def get_supported_collaterals(self) -> list:
+        return ["ETH", "DAI", "USDC"]
+
     @gl.public.write
     def assess_evidence(self, evidence: str) -> dict:
         def leader_fn() -> dict:
@@ -140,7 +148,17 @@ Respond ONLY with valid JSON:
     "USDC": {{ "regime": "Stable" | "Unsettled" | "Undertow", "reasoning": "One concise sentence describing USDC only." }}
 }}
 """
-            res = gl.nondet.exec_prompt(prompt, response_format='json')
+            raw_res = gl.nondet.exec_prompt(prompt)
+            res = {}
+            if isinstance(raw_res, str):
+                cleaned = raw_res.replace("```json", "").replace("```", "").strip()
+                try:
+                    res = json.loads(cleaned)
+                except Exception:
+                    res = {}
+            elif isinstance(raw_res, dict):
+                res = raw_res
+
             output = {}
             for asset in ("ETH", "DAI", "USDC"):
                 asset_data = res.get(asset, {})
@@ -191,7 +209,10 @@ Respond ONLY with valid JSON:
                 leader_data["USDC"]["regime"] == validator_data["USDC"]["regime"]
             )
 
-        result = gl.vm.run_nondet_unsafe(leader_fn, validator_fn)
+        run_nondet_fn = getattr(gl.vm, "run_nondet_default", getattr(gl.vm, "run_nondet_unsafe", None))
+        if run_nondet_fn is None:
+            run_nondet_fn = getattr(gl.vm, "run_nondet", None)
+        result = run_nondet_fn(leader_fn, validator_fn)
 
         self.eth_regime = result["ETH"]["regime"]
         self.eth_reasoning = clean_reasoning(result["ETH"]["reasoning"])

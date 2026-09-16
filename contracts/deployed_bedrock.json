@@ -1,16 +1,10 @@
 {
   "contractName": "BedrockCore",
-  "contractAddress": "0x87f049485c086186f44a40c60650d97417efe02a",
-  "transactionHash": "0xdab2e387c2e469c4f5057015367a11afaf3c75e14c41dc14efe862656953cab3",
-  "network": "testnet-bradbury",
-  "chainId": 4221,
-  "deployedAt": "2026-09-13T17:29:56.666Z",
-  "categories": [
-    "1. Spot Prices & LST Peg Parity (Mainnet Feeds)",
-    "2. Oracle Heartbeat & Freshness (Mainnet Latency)",
-    "3. System Collateralization Ratio (Base Sepolia Vault)",
-    "4. Debt Ceiling & Vault Reserves (Base Sepolia Vault)",
-    "5. Stablecoin Peg Deviation (DAI/USDC vs $1 Mainnet)",
-    "6. Market Volatility (ETH 1h/24h Historical Rounds Mainnet)"
-  ]
+  "contractAddress": "0x4423BC844C77437Ca5BE285f712E5c6369f2E351",
+  "transactionHash": "0x07e78220c7d6e52ea9b9e47dbc1d400d0b1849e3d97b3987bec9a43b43ad2ca9",
+  "network": "studio-devnet",
+  "chainId": 61997,
+  "rpcUrl": "https://studio-dev.genlayer.com/api",
+  "explorerUrl": "https://explorer-studio-dev.genlayer.com/address/0x4423BC844C77437Ca5BE285f712E5c6369f2E351",
+  "deployedAt": "2026-09-16T18:07:21.249Z"
 }

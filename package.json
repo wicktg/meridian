@@ -6,11 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "operator": "npx tsx contracts/scripts/run_operator_studio.ts"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.102.8",
     "connectkit": "^1.9.2",
+    "genlayer-js": "^2.0.0-rc.1",
     "next": "16.3.4",
     "react": "19.2.8",
     "react-dom": "19.2.8",

@@ -22,7 +22,7 @@ import {
   createClient as createGenLayerClient,
   createAccount as createGenLayerAccount,
 } from "genlayer-js";
-import { testnetBradbury } from "genlayer-js/chains";
+import { studioDevnet } from "genlayer-js/chains";
 import { TransactionStatus } from "genlayer-js/types";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -390,29 +390,37 @@ async function main() {
   );
 
   // --------------------------------------------------------------------------
-  // STEP 5: Submit to GenLayer Testnet Bradbury (Assess Evidence via LLMs)
+  // STEP 5: Submit to GenLayer Studio Next (Assess Evidence via LLMs)
   // --------------------------------------------------------------------------
   console.log(
-    ">>> [Step 5] Submitting real live telemetry to Bedrock on GenLayer Testnet Bradbury...",
+    ">>> [Step 5] Submitting real live telemetry to Bedrock on GenLayer Studio Next (Chain ID 61997)...",
   );
   console.log(`Target Contract: ${bedrockAddress}`);
 
   const genLayerAccount = createGenLayerAccount(formattedKey);
   const genLayerClient = createGenLayerClient({
-    chain: testnetBradbury,
+    chain: studioDevnet,
     account: genLayerAccount,
   });
+
+  console.log("Estimating GenLayer Studio Next transaction fees...");
+  const feeEstimate = await genLayerClient.estimateTransactionFees();
+  console.log(`Estimated feeValue: ${feeEstimate.feeValue.toString()}`);
 
   const assessTxHash = await genLayerClient.writeContract({
     address: bedrockAddress,
     functionName: "assess_evidence",
     args: [liveEvidence],
+    fees: {
+      distribution: feeEstimate.distribution,
+      feeValue: feeEstimate.feeValue,
+    },
   });
 
-  console.log(`\nTransaction Broadcast to GenLayer!`);
+  console.log(`\nTransaction Broadcast to GenLayer Studio Next!`);
   console.log(`Tx Hash: ${assessTxHash}`);
   console.log(
-    `Explorer: https://explorer-bradbury.genlayer.com/tx/${assessTxHash}`,
+    `Explorer: https://explorer-studio-dev.genlayer.com/tx/${assessTxHash}`,
   );
   console.log(
     "\nWaiting for GenLayer multi-validator consensus (typed TransactionStatus.ACCEPTED)...",

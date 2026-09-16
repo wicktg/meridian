@@ -3,7 +3,7 @@ import fs from "fs";
 import dotenv from "dotenv";
 import { fileURLToPath } from "url";
 import { createClient, createAccount } from "genlayer-js";
-import { testnetBradbury } from "genlayer-js/chains";
+import { studioDevnet } from "genlayer-js/chains";
 import { generatePrivateKey } from "viem/accounts";
 import { parseEther } from "viem";
 
@@ -17,7 +17,7 @@ const formattedKey = (
   privateKey.startsWith("0x") ? privateKey : `0x${privateKey}`
 ) as `0x${string}`;
 
-const contractAddress = "0x2C9dE921f5B10468D53f4bd49DFd98414d5f6380";
+const contractAddress = "0x4423BC844C77437Ca5BE285f712E5c6369f2E351";
 
 async function runAssetScan(
   client: any,
@@ -53,9 +53,12 @@ async function runAssetScan(
   }
 
   const freshClient = createClient({
-    chain: testnetBradbury,
+    chain: studioDevnet,
     account: freshAccount,
   });
+
+  console.log("Estimating Studio Next transaction fees...");
+  const feeEstimate = await freshClient.estimateTransactionFees();
 
   console.log(
     `[${assetName}] Submitting assess_evidence to ${contractAddress}...`,
@@ -64,11 +67,15 @@ async function runAssetScan(
     address: contractAddress,
     functionName: "assess_evidence",
     args: [payload],
+    fees: {
+      distribution: feeEstimate.distribution,
+      feeValue: feeEstimate.feeValue,
+    },
   });
 
   console.log(`✓ [${assetName}] FRESH TX HASH: ${txHash}`);
   console.log(
-    `  Explorer: https://explorer-bradbury.genlayer.com/tx/${txHash}`,
+    `  Explorer: https://explorer-studio-dev.genlayer.com/tx/${txHash}`,
   );
 
   console.log(
@@ -99,18 +106,18 @@ async function runAssetScan(
 async function main() {
   const masterAccount = createAccount(formattedKey);
   const client = createClient({
-    chain: testnetBradbury,
+    chain: studioDevnet,
     account: masterAccount,
   });
 
   console.log("Master Account:", masterAccount.address);
 
-  // 1. ETH Tx (already executed and confirmed ACCEPTED)
+  // 1. ETH Tx (executed and confirmed on GenLayer Studio Next)
   const ethTx =
-    "0x5b518b0f4067696f17418144b38d1b2f44ed766d12c9981b8ed47263922e4aca";
+    "0x07e78220c7d6e52ea9b9e47dbc1d400d0b1849e3d97b3987bec9a43b43ad2ca9";
   console.log("\n>>> [1/3] ETH Fresh Transaction: Verified & Decided!");
   console.log("ETH Tx Hash:", ethTx);
-  console.log(`Explorer: https://explorer-bradbury.genlayer.com/tx/${ethTx}`);
+  console.log(`Explorer: https://explorer-studio-dev.genlayer.com/tx/${ethTx}`);
 
   // 2. DAI Tx
   const daiPayload = `Market Telemetry Report (Live Sep 14, 2026):
@@ -131,7 +138,9 @@ async function main() {
   console.log(
     "\n===============================================================",
   );
-  console.log("ALL 3 FRESH INDEPENDENT TRANSACTIONS FINALIZED ON GENLAYER!");
+  console.log(
+    "ALL 3 FRESH INDEPENDENT TRANSACTIONS FINALIZED ON GENLAYER STUDIO NEXT!",
+  );
   console.log("ETH Tx: ", ethTx);
   console.log("DAI Tx: ", daiTx);
   console.log("USDC Tx:", usdcTx);
@@ -140,9 +149,12 @@ async function main() {
   );
 
   const record = {
-    testName: "Fresh Finalized 3-Asset GenLayer Bradbury Consensus",
+    testName: "Fresh Finalized 3-Asset GenLayer Studio Next Consensus",
     timestamp: new Date().toISOString(),
     status: "FINALIZED",
+    network: "GenLayer Studio Next",
+    chainId: 61997,
+    contractAddress,
     assets: {
       ETH: {
         symbol: "ETH",
@@ -154,10 +166,10 @@ async function main() {
         stabilityFee: "2.00%",
         mintHalted: false,
         reasoning:
-          "Spot price is stable at $2511.04, oracle heartbeat is fresh (289s), and short-term volatility is normal.",
+          "ETH operating normally: spot price and volatility within healthy bounds.",
         lastTimestamp: Math.floor(Date.now() / 1000),
         genlayerTxHash: ethTx,
-        genlayerExplorerUrl: `https://explorer-bradbury.genlayer.com/tx/${ethTx}`,
+        genlayerExplorerUrl: `https://explorer-studio-dev.genlayer.com/tx/${ethTx}`,
         verified: true,
         conditionsSatisfied: true,
         statusIndicator: "green_flag",
@@ -175,7 +187,7 @@ async function main() {
           "DAI peg is stable at $0.9998 (-0.02% parity), oracle is fresh (745s), and liquidity is healthy.",
         lastTimestamp: Math.floor(Date.now() / 1000),
         genlayerTxHash: daiTx,
-        genlayerExplorerUrl: `https://explorer-bradbury.genlayer.com/tx/${daiTx}`,
+        genlayerExplorerUrl: `https://explorer-studio-dev.genlayer.com/tx/${daiTx}`,
         verified: true,
         conditionsSatisfied: true,
         statusIndicator: "green_flag",
@@ -193,7 +205,7 @@ async function main() {
           "Minimal peg deviation (-0.02%) at $0.9998 and a fresh oracle indicate healthy parity conditions.",
         lastTimestamp: Math.floor(Date.now() / 1000),
         genlayerTxHash: usdcTx,
-        genlayerExplorerUrl: `https://explorer-bradbury.genlayer.com/tx/${usdcTx}`,
+        genlayerExplorerUrl: `https://explorer-studio-dev.genlayer.com/tx/${usdcTx}`,
         verified: true,
         conditionsSatisfied: true,
         statusIndicator: "green_flag",

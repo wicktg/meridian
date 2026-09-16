@@ -1,9 +1,14 @@
 {
   "name": "genlayer-project",
   "type": "module",
+  "scripts": {
+    "operator": "tsx scripts/run_operator_studio.ts",
+    "operator:pipeline": "tsx scripts/live_bedrock_pipeline.ts",
+    "deploy:studio": "tsx scripts/deploy_studio_dev.ts"
+  },
   "devDependencies": {
     "dotenv": "^16.4.7",
-    "genlayer-js": "^1.1.8",
+    "genlayer-js": "^2.0.0-rc.1",
     "tsx": "^4.19.3"
   },
   "dependencies": {

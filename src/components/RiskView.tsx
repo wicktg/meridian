@@ -4,7 +4,11 @@ import React, { useMemo } from "react";
 import { CollateralBadge } from "./MarketsView";
 import { useWeb3 } from "@/context/Web3Context";
 import { useVaultData, SUPPORTED_TOKENS } from "@/lib/vaultClient";
-import livePerAssetRecord from "@/lib/livePerAssetRecord.json";
+import {
+  useBedrockState,
+  GENLAYER_EXPLORER_BASE,
+  BEDROCK_CONTRACT_ADDRESS,
+} from "@/lib/bedrockClient";
 
 function formatTimestamp(ts: number) {
   if (!ts || ts === 0) {
@@ -50,16 +54,10 @@ function formatTimestamp(ts: number) {
   return { relative, formatted };
 }
 
-// 3 Independent Verified Finalized GenLayer Transactions for the 3 Assets
-const GENLAYER_PER_ASSET_TXS: Record<string, string> = {
-  ETH: "0x5b518b0f4067696f17418144b38d1b2f44ed766d12c9981b8ed47263922e4aca",
-  DAI: "0xdb30d81111e7838985d7437a436723d0a2a34f1f58025eb305df2628321a934b",
-  USDC: "0x7d1714111dcf3d12ef319a33c45aade89f97b8c64ee94b5e9f55334aab78d401",
-};
-
 export default function RiskView() {
   const { effectiveAddress } = useWeb3();
   const vaultState = useVaultData(effectiveAddress);
+  const bedrock = useBedrockState();
 
   // Map tokens to their live per-asset state
   const tokenMap = useMemo(() => {
@@ -68,22 +66,7 @@ export default function RiskView() {
     return map;
   }, [vaultState.tokens]);
 
-  const assetRecords = livePerAssetRecord.assets as Record<
-    string,
-    {
-      symbol: string;
-      name: string;
-      regime: string;
-      requiredCR: string;
-      reasoning: string;
-      lastTimestamp: number;
-      genlayerTxHash?: string;
-      genlayerExplorerUrl?: string;
-      verified: boolean;
-      conditionsSatisfied: boolean;
-      statusIndicator: string;
-    }
-  >;
+  const explorerContractUrl = `${GENLAYER_EXPLORER_BASE}/address/${BEDROCK_CONTRACT_ADDRESS}`;
 
   return (
     <div className="w-full space-y-4">
@@ -98,6 +81,35 @@ export default function RiskView() {
           asset&apos;s current required ratio and the concrete market event
           behind the change.
         </p>
+        {/* Live contract source indicator */}
+        <div className="mt-3 flex items-center gap-2 text-[11px] text-[#64748b]">
+          <span
+            className={`inline-block w-2 h-2 rounded-full ${
+              bedrock.source === "live"
+                ? "bg-green-500"
+                : bedrock.source === "fallback"
+                  ? "bg-amber-400"
+                  : "bg-red-400"
+            }`}
+          />
+          <span>
+            {bedrock.source === "live"
+              ? "Live from Studio Next (Chain 61997)"
+              : bedrock.source === "fallback"
+                ? "Using cached data"
+                : "Contract read error"}
+          </span>
+          <span className="text-[#94a3b8]">|</span>
+          <a
+            href={explorerContractUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-mono text-blue-600 hover:underline"
+          >
+            {BEDROCK_CONTRACT_ADDRESS.slice(0, 8)}...
+            {BEDROCK_CONTRACT_ADDRESS.slice(-6)}
+          </a>
+        </div>
       </div>
 
       {/* Main Per-Asset Risk Table Card */}
@@ -121,53 +133,42 @@ export default function RiskView() {
             <tbody className="divide-y divide-[#f1f3f7] text-[13px] text-[#1e293b]">
               {SUPPORTED_TOKENS.map((token) => {
                 const tokenData = tokenMap.get(token.symbol);
-                const assetRecord = assetRecords[token.symbol];
-                const isEnabled =
-                  token.symbol === "ETH" ||
-                  token.symbol === "DAI" ||
-                  token.symbol === "USDC";
+                const bedrockAsset = bedrock.assets[token.symbol];
+                const isEnabled = !!bedrockAsset?.enabled;
 
-                // Per-asset values for enabled assets vs. fallback for disabled assets
-                let ratioText = "—";
+                // Per-asset values from live contract state
+                let ratioText = "\u2014";
                 let riskNote =
                   "Per-asset evaluation not yet enabled for this asset";
-                let lastChangedText: React.ReactNode = "—";
-                let genlayerTx = "";
+                let lastChangedText: React.ReactNode = "\u2014";
                 let explorerLink = "";
 
-                if (isEnabled) {
-                  // Real independent ratio per asset
+                if (isEnabled && bedrockAsset) {
+                  // Real independent ratio per asset from live contract
                   ratioText =
-                    tokenData?.requiredCR && tokenData.requiredCR !== "—"
+                    tokenData?.requiredCR && tokenData.requiredCR !== "\u2014"
                       ? tokenData.requiredCR
-                      : assetRecord?.requiredCR || "150%";
+                      : bedrockAsset.requiredCR || "150%";
 
-                  // Real independent risk note per asset
+                  // Real independent risk note from live contract
                   riskNote =
                     tokenData?.reasoning &&
                     !tokenData.reasoning.includes("not yet enabled")
                       ? tokenData.reasoning
-                      : assetRecord?.reasoning ||
-                        (token.symbol === "ETH"
-                          ? "Spot price is stable at $2511.04, oracle heartbeat is fresh (289s), and short-term volatility is normal."
-                          : token.symbol === "DAI"
-                            ? "DAI peg is stable at $0.9998 (-0.02% parity), oracle is fresh (745s), and liquidity is healthy."
-                            : "Minimal peg deviation (-0.02%) at $0.9998 and a fresh oracle indicate healthy parity conditions.");
+                      : bedrockAsset.reasoning ||
+                        `${token.symbol} operating in ${bedrockAsset.regime} regime.`;
 
-                  // Real timestamp & GenLayer explorer link
+                  // Timestamp and Studio Next explorer link
                   const ts =
                     tokenData?.lastTimestamp && tokenData.lastTimestamp > 0
                       ? tokenData.lastTimestamp
-                      : assetRecord?.lastTimestamp || 1789388190;
+                      : bedrockAsset.lastTimestamp ||
+                        Math.floor(Date.now() / 1000);
                   const timeInfo = formatTimestamp(ts);
 
-                  // 3 Independent GenLayer Transactions
-                  genlayerTx =
-                    GENLAYER_PER_ASSET_TXS[token.symbol] ||
-                    assetRecord?.genlayerTxHash ||
-                    "0x513f29b8fdb2139b0eb49a5cf241d5a5a28746d0672f0f19d3a6e699be7f2186";
-
-                  explorerLink = `https://explorer-bradbury.genlayer.com/tx/${genlayerTx}`;
+                  // Link to Studio Next explorer (contract page)
+                  explorerLink =
+                    bedrockAsset.genlayerExplorerUrl || explorerContractUrl;
 
                   lastChangedText = (
                     <div>
@@ -179,7 +180,7 @@ export default function RiskView() {
                           href={explorerLink}
                           target="_blank"
                           rel="noopener noreferrer"
-                          title={`View ${token.symbol} Bedrock AI Consensus on GenLayer Explorer: ${genlayerTx}`}
+                          title={`View ${token.symbol} on GenLayer Studio Next Explorer`}
                           className="hover:underline hover:text-blue-600 transition-colors"
                         >
                           {timeInfo.formatted}
@@ -224,17 +225,20 @@ export default function RiskView() {
                       }`}
                     >
                       <div>{riskNote}</div>
-                      {isEnabled && genlayerTx && (
+                      {isEnabled && (
                         <div className="mt-1 flex items-center gap-1.5 text-[11px] font-mono text-[#64748b]">
-                          <span className="text-[#94a3b8]">GenLayer Tx:</span>
+                          <span className="text-[#94a3b8]">GenLayer:</span>
                           <a
                             href={explorerLink}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-blue-600 hover:underline inline-flex items-center gap-1"
-                            title={`Inspect ${token.symbol} consensus on GenLayer Bradbury Explorer`}
+                            title={`Inspect ${token.symbol} on GenLayer Studio Next Explorer`}
                           >
-                            <span>{`${genlayerTx.slice(0, 8)}...${genlayerTx.slice(-6)}`}</span>
+                            <span>
+                              {BEDROCK_CONTRACT_ADDRESS.slice(0, 8)}...
+                              {BEDROCK_CONTRACT_ADDRESS.slice(-6)}
+                            </span>
                             <svg
                               className="w-2.5 h-2.5 inline text-blue-500"
                               fill="none"
